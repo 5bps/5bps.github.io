@@ -788,13 +788,8 @@
                 await navigator.clipboard.writeText(phoneToCopy);
                 showToast('📞 号码已复制');
             } catch (err) {
-                const textarea = document.createElement('textarea');
-                textarea.value = phoneToCopy;
-                document.body.appendChild(textarea);
-                textarea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textarea);
-                showToast('📞 号码已复制');
+                console.error('复制失败:', err);
+                showToast('❌ 复制失败，请手动复制');
             }
         }
         
